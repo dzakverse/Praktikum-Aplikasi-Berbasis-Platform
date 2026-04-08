@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efek Animasi jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("button").click(function() {
+                $("div").animate({
+                    height: 'toggle'
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <p>Klik tombol di bawah untuk melihat animasi toggle pada kotak.</p>
+    <button>Start Animation</button>
+    <br><br>
+    
+    <div style="background: #98bf21; height:100px; width:100px; position:absolute;">
+    </div>
+</body>
+</html>
