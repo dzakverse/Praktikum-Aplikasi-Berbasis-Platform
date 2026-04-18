@@ -1,0 +1,1 @@
+<b>Berhasil!</b> Konten ini dimuat secara dinamis menggunakan jQuery AJAX.
