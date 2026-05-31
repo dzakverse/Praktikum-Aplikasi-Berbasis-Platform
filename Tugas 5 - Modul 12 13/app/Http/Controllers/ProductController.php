@@ -9,10 +9,23 @@ class ProductController extends Controller
 {
 public function index()
 {
-    $list = \App\Models\Product::all();
-    
-    return view('products.index', compact('list'));
+    // Ambil data produk beserta variannya (Eager Loading agar lebih cepat)
+    $prods = \App\Models\Product::with('variants')->get();
+
+    // Cek apakah diakses dari URL yang ada kata 'api'
+    if (request()->segment(1) == 'api') {
+        return response()->json([
+            'error' => false,
+            'list'  => $prods,
+        ]);
+    }
+
+    return view('products.index', [
+        'title' => 'Daftar Produk',
+        'list'  => $prods,
+    ]);
 }
+
 public function create()
 {
     return view('products.form', [
